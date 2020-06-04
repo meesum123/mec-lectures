@@ -12,10 +12,10 @@ function Posts(props) {
   return (
     <div style={{ marginTop: 20, padding: 30, marginLeft:40}}>
       <Grid container spacing={40} justify="left">
-        {videos && videos.map(post => (
-          <Grid item key={post.name}>
+        {videos && videos.map((post,i) => (
+          <Grid item key={i}>
             <Link to = "/videos" style = {{textDecoration: "none"}}>
-              <div className = "Filter_Click">
+              <div key={i} onClick={(e) => props.setSource(e,post.id)}>
               <Card style = {{width:320, height:250, margin:10}}>
                 <CardActionArea>
                   <CardMedia

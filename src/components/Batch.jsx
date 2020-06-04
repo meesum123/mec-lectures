@@ -34,7 +34,7 @@ class Batch extends React.Component {
 
     return (
       <div>
-        <select className = "Batch_Class" onChange={this.props.changeBatch}>
+        <select onChange={this.props.changeBatch}>
           {optionsList}
         </select>
       </div>

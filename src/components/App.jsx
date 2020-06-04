@@ -14,7 +14,8 @@ class App extends React.Component {
       this.state = {
         batch_filter : '0',
         branch_filter : '0',
-        course_filter : '0'
+        course_filter : '0',
+        video_id : 1
       };
     }
 changeBatch = (e) =>{
@@ -28,6 +29,10 @@ changeBranch = (e) =>{
 changeCourse = (e) =>{
     console.log(e.target.value);
     this.setState({course_filter: e.target.value})
+}
+setSource= (e, sourceVal) => {
+    console.log(sourceVal);
+    this.setState({video_id: sourceVal})
 }
 render(){
     let filteredBatch = videos.filter(
@@ -66,7 +71,6 @@ render(){
             } 
         }
     )
-    console.log(filteredVideos.length)
     return <div>
         <Router>
             <Header/>
@@ -98,10 +102,10 @@ render(){
                         </td>
                     </tr>        
                 </table>
-                <Posts video_list = {filteredVideos}/>
+                <Posts video_list = {filteredVideos} setSource = {this.setSource}/>
             </div>
             }/>
-            <Route path="/videos" exact component = {() => <PlayList fvideos={filteredVideos} />}/>
+            <Route path="/videos" exact component = {() => <PlayList fvideos={filteredVideos} v_id = {this.state.video_id}/>}/>
             </Switch>
         </Router>
         </div>

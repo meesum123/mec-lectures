@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Grid, Paper, Typography } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -8,19 +8,24 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import {Playlist} from "./Playlist"
-export const PlayList = ({fvideos}) => {
+export const PlayList = ({fvideos,v_id}) => {
   // todo: ^ set true when "Load more" button is clicked, then always load more at bottom of page
-  console.log(fvideos.length);
+  const[fvids, setvids] = useState(fvideos)
+  const [video_id, setVid] = useState(v_id)
+const setNewSource= (e, sourceVal) => {
+    console.log(sourceVal)
+    setVid(sourceVal)
+}
   return (
     <div className = "video_playlist_container">
       <div className = "video_container">
-      <Playlist/>
+      <Playlist video_id = {video_id}/>
       </div>
       <div className = "playlist_container">
     <Grid container spacing={0} justify="center">
-      {fvideos.map((post, index) =>
+      {fvids.map((post, index) =>
             <Grid item key={post.name}>
-              <div className="Source_Click">
+              <div key={index} onClick={(e) => setNewSource(e,post.id)}>
               <Card style = {{width:300, height:200, margin:0}}>
                 <CardActionArea>
                   <CardMedia
