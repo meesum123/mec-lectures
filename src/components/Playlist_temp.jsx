@@ -36,10 +36,9 @@ const setNewSource= (e, sourceVal) => {
                     title={post.name}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h6" component="h4">
+                    <strong>
                       {post.name}
-                    </Typography>
-                    <Typography component="p">{post.description}</Typography>
+                    </strong>
                   </CardContent>
                 </CardActionArea>
               </Card>

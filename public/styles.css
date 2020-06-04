@@ -75,8 +75,8 @@ table{
   text-align: center;
 }
 .video-js {
-  height: 350px;
-  width: 625px;
+  height: 525px;
+  width: 935px;
 }
 .vjs-playlist {
   width: 960px;
@@ -87,8 +87,13 @@ table{
   display: inline-block;
 }
 .playlist_container{
-  width: 300px;
-  height: 350px; 
+  width: 320px;
+  height: 525px; 
   overflow-y:auto;
   display: inline-block;
+}
+.video_playlist_container{
+  position: relative;
+  left : 150px;
+  top: 50px;
 }
